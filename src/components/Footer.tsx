@@ -1,86 +1,97 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
 
 const footerLinks = {
   company: [
     { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
-    { name: "Team", href: "#team" },
+    { name: "Our Team", href: "#team" },
+    { name: "Careers", href: "#" },
   ],
   services: [
     { name: "Web Development", href: "#services" },
     { name: "Mobile Apps", href: "#services" },
     { name: "UI/UX Design", href: "#services" },
-    { name: "DP-LMS", href: "#services" },
   ],
   support: [
-    { name: "Contact Us", href: "#contact" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
+    { name: "Contact", href: "#contact" },
     { name: "FAQ", href: "#" },
+    { name: "Privacy Policy", href: "#" },
   ],
 };
 
-const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-];
-
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <footer className="bg-gradient-brand text-white relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-      <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-          {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-2">
-            <Link href="#home" className="flex items-center gap-2 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">F</span>
+    <footer
+      style={{
+        background: "linear-gradient(135deg, #020063 0%, #110f94 100%)",
+        color: "white",
+      }}
+    >
+      {/* Main Footer */}
+      <div
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "64px 24px 48px 24px",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "2fr 1fr 1fr 1fr",
+            gap: "48px",
+          }}
+        >
+          {/* Brand */}
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+              <div
+                style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "12px",
+                  backgroundColor: "rgba(255, 255, 255, 0.15)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                }}
+              >
+                F
               </div>
-              <span className="text-2xl font-bold">FLO Softwares</span>
-            </Link>
-            <p className="text-white/70 mb-6 leading-relaxed max-w-sm">
-              Innovating through software solutions. We build cutting-edge
-              digital products that transform businesses and drive success.
-            </p>
-            <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
+              <span style={{ fontSize: "20px", fontWeight: "bold" }}>FLO Softwares</span>
             </div>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(255, 255, 255, 0.6)",
+                lineHeight: "1.7",
+                maxWidth: "280px",
+              }}
+            >
+              Transforming ideas into powerful software solutions. Based in Lalitpur, Nepal.
+            </p>
           </div>
 
           {/* Company Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
+            <h4 style={{ fontSize: "14px", fontWeight: "600", marginBottom: "20px", textTransform: "uppercase", letterSpacing: "1px" }}>
+              Company
+            </h4>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {footerLinks.company.map((link, i) => (
+                <li key={i} style={{ marginBottom: "12px" }}>
                   <Link
                     href={link.href}
-                    className="text-white/70 hover:text-white transition-colors"
+                    style={{
+                      fontSize: "14px",
+                      color: "rgba(255, 255, 255, 0.6)",
+                      textDecoration: "none",
+                      transition: "color 0.2s ease",
+                    }}
+                    className="hover:text-white"
                   >
                     {link.name}
                   </Link>
@@ -91,13 +102,20 @@ export default function Footer() {
 
           {/* Services Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
+            <h4 style={{ fontSize: "14px", fontWeight: "600", marginBottom: "20px", textTransform: "uppercase", letterSpacing: "1px" }}>
+              Services
+            </h4>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {footerLinks.services.map((link, i) => (
+                <li key={i} style={{ marginBottom: "12px" }}>
                   <Link
                     href={link.href}
-                    className="text-white/70 hover:text-white transition-colors"
+                    style={{
+                      fontSize: "14px",
+                      color: "rgba(255, 255, 255, 0.6)",
+                      textDecoration: "none",
+                    }}
+                    className="hover:text-white"
                   >
                     {link.name}
                   </Link>
@@ -108,13 +126,20 @@ export default function Footer() {
 
           {/* Support Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Support</h4>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
+            <h4 style={{ fontSize: "14px", fontWeight: "600", marginBottom: "20px", textTransform: "uppercase", letterSpacing: "1px" }}>
+              Support
+            </h4>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {footerLinks.support.map((link, i) => (
+                <li key={i} style={{ marginBottom: "12px" }}>
                   <Link
                     href={link.href}
-                    className="text-white/70 hover:text-white transition-colors"
+                    style={{
+                      fontSize: "14px",
+                      color: "rgba(255, 255, 255, 0.6)",
+                      textDecoration: "none",
+                    }}
+                    className="hover:text-white"
                   >
                     {link.name}
                   </Link>
@@ -123,29 +148,45 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className="py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/60 text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} FLO Softwares. All rights reserved.
-          </p>
-          <p className="text-white/60 text-sm">
-            Powered by{" "}
-            <a href="#" className="text-white hover:underline">
-              Reeman Group
-            </a>
-          </p>
-        </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-br from-[#020063] to-[#110f94] text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center z-50"
-        aria-label="Scroll to top"
+      {/* Bottom Bar */}
+      <div
+        style={{
+          borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+          padding: "24px",
+        }}
       >
-        <ArrowUp className="w-5 h-5" />
-      </button>
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <p style={{ fontSize: "13px", color: "rgba(255, 255, 255, 0.5)" }}>
+            © 2024 FLO Softwares. All rights reserved.
+          </p>
+          <div style={{ display: "flex", gap: "16px" }}>
+            {["Twitter", "LinkedIn", "GitHub"].map((social, i) => (
+              <Link
+                key={i}
+                href="#"
+                style={{
+                  fontSize: "13px",
+                  color: "rgba(255, 255, 255, 0.5)",
+                  textDecoration: "none",
+                }}
+                className="hover:text-white"
+              >
+                {social}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }
